@@ -21,7 +21,7 @@ resource "aws_default_subnet" "default_az1" {
 }
 
 resource "aws_instance" "app_server" {
-  ami           = "ami-03190fe20ef6b1419"
+  ami           = "ami-830c94e3"
   instance_type = "t2.micro"
 
   tags = {
