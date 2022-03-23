@@ -20,13 +20,9 @@ resource "aws_default_subnet" "default_az1" {
   }
 }
 
-resource "aws_instance" "app_server" {
-  ami           = "ami-830c94e3"
+resource "aws_instance" "example" {
+  ami           = "ami-0c55b159cbfafe1f0"
   instance_type = "t2.micro"
-
-  tags = {
-    Name = "Demo WebServer"
-  }
 }
 
 
