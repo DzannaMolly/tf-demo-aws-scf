@@ -20,29 +20,14 @@ resource "aws_default_subnet" "default_az1" {
   }
 }
 
-data "aws_ami" "ubuntu" {
-  most_recent = true
-
-  filter {
-    name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
-  }
-
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
-
-  owners = ["426014231116"] # Canonical
-}
-
-resource "aws_instance" "web" {
-  ami           = data.aws_ami.ubuntu.id
-  instance_type = "t3.micro"
+resource "aws_instance" "app_server" {
+  ami           = "ami-03190fe20ef6b1419"
+  instance_type = "t2.micro"
 
   tags = {
-    Name = "Demo Instance"
+    Name = "Demo WebServer"
   }
 }
+
 
 
